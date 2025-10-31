@@ -1,0 +1,139 @@
+
+html, body {
+       font-family: "Plus Jakarta Sans", sans-serif !important;
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+   flex:1;
+}
+
+/* navbar */
+ .navbar{
+    height:5rem;
+ }
+
+ .fa-mountain-sun{
+    color:rgb(238, 49, 16);
+    /* border:1px solid; */
+    font-size: smaller;
+ }
+ .nav-link{
+    color:#222222 !important;
+ }
+
+
+ /* footer */
+/* footer {
+  margin-top: auto;
+  bottom:0;
+  position: relative;
+} */
+
+ .f-info-links a{
+    text-decoration:none;
+    color:#222222;
+ }
+
+ .f-info-links a:hover{
+    text-decoration: underline;
+ }
+
+ .f-info-links, .f-info-socials, .f-info-name{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+ }
+
+ .f-info{
+    height:8rem;
+    background-color: #ebebeb;
+    display:flex;
+    flex-wrap: wrap;
+    text-align:center;
+    width:100%;
+    align-items:space-evenly;
+    justify-content: center;
+ }
+
+ 
+
+  .f-info-socials i{
+    font-size:1.2rem;
+ }
+
+/* cards */
+.listing-card{
+   border:none !important;
+   margin-bottom:2rem;
+}
+
+.card-img-top{
+   border-radius:1rem !important;
+   width:100%;
+   object-fit: cover !important;
+}
+
+
+.card-text, .card-title{
+   margin:0 !important;
+   padding:0 !important;
+}
+.listing-link{
+   text-decoration: none;
+}
+
+/* card effect */
+.card-img-overlay{
+   opacity:0;
+}
+
+.card-img-overlay:hover{
+   opacity:0.4 !important;
+   background-color: white;
+}
+
+/* newpage */
+.add-btn{
+   background-color:rgb(238, 49, 16)  !important;
+   border: none !important;
+}
+
+/* Edit page */
+.edit-btn{
+   background-color:rgb(238, 49, 16)  !important;
+   border: none !important;
+}
+
+/* show page */
+.show-img{
+   height:40vh;
+}
+
+.btns{
+   display:flex;
+}
+
+.show-card{
+   padding-left:0;
+   padding-right:0;
+}
+
+/* error page */
+.errorpage{
+   flex:1;
+}
+
+/* Map */
+#map {
+   height:350px;
+   width:80vh;
+}
+

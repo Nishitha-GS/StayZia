@@ -1,0 +1,13 @@
+ <% if(success && success.length) {%>   <!-- why success.length also beacause success is an array and div will be displayed even it empty array exists therefore we use succes,length too! -->
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% }%>
+
+ <% if(error && error.length) {%>   <!-- why success.length also beacause success is an array and div will be displayed even it empty array exists therefore we use succes,length too! -->
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% }%>

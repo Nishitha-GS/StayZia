@@ -12,7 +12,7 @@ module.exports.index=async (req,res)=>{
     } else {
         allListings= await Listing.find({});
     }
-    res.redirect("listings/index.ejs",{allListings,category});
+    res.render("listings/index.ejs",{allListings,category});
 };
 
 module.exports.renderNewForm=async(req,res)=>{

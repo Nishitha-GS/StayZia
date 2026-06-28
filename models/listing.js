@@ -1,7 +1,6 @@
 const mongoose=require("mongoose");
 const { Schema } = mongoose;
 const Review=require("./reviews.js");
-const reviews = require("./reviews.js");
 
 
 const listingsSchema=mongoose.Schema({
@@ -40,7 +39,8 @@ const listingsSchema=mongoose.Schema({
     },
     category :{
       type:String,
-      enum:["Mountains","Castles","Arctic","Camping","Farms","Rooms","Iconic Cities","Swimming","Beach","Boat"]
+      enum:["Mountains","Castles","Arctic","Camping","Farms","Rooms","Iconic cities","Swimming","Beach","Boat"]
+      
     }
 });
 

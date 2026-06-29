@@ -4,7 +4,7 @@ module.exports.renderSignupForm=(req,res)=>{
     res.render("./user/signup.ejs");
 }
 
-module.exports.signup=async(req,res)=>{
+module.exports.signup=async(req,res, next)=>{
     try{
         let {username,password,email}=req.body;
         let newUser= new User({email,username});
@@ -28,7 +28,7 @@ module.exports.renderLoginForm=(req,res)=>{
 }
 
 module.exports.login=async(req,res)=>{
-    console.log(req.username," logged in");
+    console.log(req.user.username," logged in");
     req.flash("success","you have login successfully! Welcome back to Stayzia");
     let redirectUrl=res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);

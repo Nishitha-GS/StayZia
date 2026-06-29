@@ -25,7 +25,7 @@ const userRouter=require("./routes/user.js");
 
 
 app.use(express.static(path.join(__dirname,"public")));
-app.set("views engine","ejs");
+app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended :true}));
@@ -33,20 +33,15 @@ app.engine("ejs",ejsMate);
 app.use(express.json());
 
 const dbUrl=process.env.ATLASDB_URL;
-// const mongoDB_url="mongodb://127.0.0.1:27017/Stayzia"
 
 const store=MongoStore.create({
     mongoUrl:dbUrl,
-    crypto:{
-        secret:process.env.SECRET,
-    },
-    touchAfter:24 *3600 //1day in seconds
+    touchAfter:24*3600
 })
 
-store.on("error",()=>{
-    console.log("ERROR IN THE MONGO SESSION STORE ",err)
+store.on("error",(err)=>{
+    console.log("ERROR IN THE MONGO SESSION STORE",err);
 })
-
 const sessionOptions={
     store,
     secret:process.env.SECRET,
@@ -70,6 +65,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 
 app.use((req,res,next)=>{
@@ -98,18 +94,18 @@ app.use((req,res,next)=>{
     next(new ExpressError("Page not Found!",404));
 })
 
-app.use((err,req,res,next)=>{
-    const {statusCode=500,message="something went wrong"}=err;
-    res.status(statusCode);
-    res.render("Error.ejs",{message,statusCode});
-//     res.status(statusCode).send(message);
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+
+    if (res.headersSent) {
+        return next(err);
+    }
+
+    const { statusCode = 500, message = "Something went wrong" } = err;
+    res.status(statusCode).render("Error.ejs", { message, statusCode });
 });
 
 
 app.listen(8080,()=>{
     console.log("Listening to port 8080");
 })
-
-
-
-

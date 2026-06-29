@@ -23,7 +23,7 @@ router.get("/search",async(req,res)=>{
     const {q}=req.query;
     console.log(q);
     if(!q || q.trim() === ''){
-        res.redirect("/listings")
+       return res.redirect("/listings")
     }else{
         const regex=new RegExp(q,'i'); //case sensitive search
         const allListings=await Listing.find({ $or:[

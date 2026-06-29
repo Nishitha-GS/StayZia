@@ -27,7 +27,7 @@ module.exports.showListing=async (req,res)=>{
         res.redirect("/listings");
     }else{
         // console.log("viewing listing ",listing.title);
-        res.render("listings/show.ejs",{listing});
+        res.render("listings/show.ejs",{listing, mapToken});
     }  
 };
 
